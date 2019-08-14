@@ -2,10 +2,25 @@ pipeline{
   agent any
   
   stages{
-    stage("main"){
+    
+    stage("test"){
       steps{
-        sh "echo ahoj"
+        sh "mvn test"
       }
+    }
+    
+    stage("build"){
+      steps{
+        sh "mvn package"
+      }
+    }
+  }
+  post{
+    always{
+      echo "im done"
+    }
+    success{
+      archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
     }
   }
 }

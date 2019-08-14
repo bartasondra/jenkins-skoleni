@@ -1,4 +1,6 @@
-pipeline{
+test()
+
+/*pipeline{
   agent any
   
   stages{
@@ -24,3 +26,4 @@ pipeline{
     }
   }
 }
+*/

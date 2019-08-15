@@ -7,22 +7,13 @@ pipeline{
     
     stage("test"){
       steps{
-        sh "mvn test"
-      }
-    }
-    
-    stage("build"){
-      steps{
-        sh "mvn package"
+        echo env.BRANCH_NAME
       }
     }
   }
   post{
     always{
       echo "im done"
-    }
-    success{
-      archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
     }
   }
 }
